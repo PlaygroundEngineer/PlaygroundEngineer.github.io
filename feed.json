@@ -11,7 +11,7 @@
             "overviewSubtitle": "Intermediate",
             "detailSubtitle": "Version 1.0",
             "description": "Use Swift to design your own abstract designs",
-            "contentIdentifier": "com.Playground.Artist",
+            "contentIdentifier": "io.github.PlaygroundEngineer.Artist",
             "contentVersion": "1.0",
             "url": "https:\/\/PlaygroundEngineer.github.io\/Artist\/Artist.playgroundbook.zip",
             "publishedDate": "2021-06-05T02:13:57+00:00",
