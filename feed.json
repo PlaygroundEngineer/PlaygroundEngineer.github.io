@@ -9,8 +9,8 @@
         {
             "title": "Artist",
             "overviewSubtitle": "Intermediate",
-            "detailSubtitle": "Use Swift to design your own abstract designs",
-            "description": "See the power and fun of coding as you customize the sample projects to create your own digital art. \n\nThis book is divided into three main parts: \n SprieKit concepts \n Sample Projects \n Student Projects \n\n Go over the concepts first, play with sample projects and then have fun creating your own projects!",
+            "detailSubtitle": "Create your own digital Art!",
+            "description": "Experience the fun of coding as you customize the sample projects to create your own digital Art. \n\nThis book is divided into three main parts: \n\n SprieKit concepts \n Sample Projects \n Student Projects \n\n Go over the concepts first, play with the sample projects first, then have fun creating your own projects under student projects! \n\n Visit www.playgroundengineer.com to learn more about game and app development.",
             "contentIdentifier": "io.github.PlaygroundEngineer.Artist",
             "contentVersion": "1.0",
             "url": "https:\/\/PlaygroundEngineer.github.io\/Artist\/Artist.playgroundbook.zip",
