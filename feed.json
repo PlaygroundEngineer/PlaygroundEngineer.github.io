@@ -1,0 +1,32 @@
+{
+    "title": "Playground Engineer",
+    "subtitle": "A Collection of Lessons that help you learn Game and App development using Swift",
+    "publisherName": "Playground",
+    "feedIdentifier": "io.github.PlaygroundEngineer",
+    "contactURL": "https:\/\/playgroundengineer.com\/index.php\/contact\/",
+    "formatVersion": "1.2",
+    "documents": [
+        {
+            "title": "Artist",
+            "overviewSubtitle": "Intermediate",
+            "detailSubtitle": "Version 1.0",
+            "description": "Use Swift to design your own abstract designs",
+            "contentIdentifier": "com.Playground.Artist",
+            "contentVersion": "1.0",
+            "url": "https:\/\/PlaygroundEngineer.github.io\/Artist\/Artist.playgroundbook.zip",
+            "publishedDate": "2021-06-05T02:13:57+00:00",
+            "lastUpdatedDate": "2021-06-06T08:00:00+00:00",
+            "thumbnailURL": "Artist\/thumbnail.png",
+            "bannerImageURL": "Artist\/banner.png",
+            "additionalInformation": [
+                {
+                    "name": "Languages",
+                    "value": "English"
+                }
+            ],
+            "previewImageURLs": [
+                "Artist\/previewImage.png"
+            ]
+        }
+    ]
+}
