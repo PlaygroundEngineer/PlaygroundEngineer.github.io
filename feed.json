@@ -38,10 +38,9 @@
                 
             ],
             "previewImageURLs": [
-                "Artist\/Preview1.png",
-                "Artist\/Preview2.png",
-                "Artist\/Preview3.png",
-                "Artist\/Preview4.png"
+                "Artist\/previewImage.png",
+                "Artist\/previewImage-1.png",
+                "Artist\/previewImage-2.png"
             ]
         }
     ]
