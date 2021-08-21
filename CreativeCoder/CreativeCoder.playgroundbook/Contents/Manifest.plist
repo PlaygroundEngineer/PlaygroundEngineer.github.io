@@ -9,7 +9,7 @@
 		<string>Projects.playgroundchapter</string>
 	</array>
 	<key>ContentIdentifier</key>
-	<string>com.Playground.CreativeCoder.CreativeCoder</string>
+	<string>io.github.PlaygroundEngineer.CreativeCoder</string>
 	<key>ContentVersion</key>
 	<string>1.0</string>
 	<key>DeploymentTarget</key>
