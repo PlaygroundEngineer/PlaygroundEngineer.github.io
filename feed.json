@@ -55,7 +55,6 @@
             "publishedDate": "2021-08-20T02:13:57+00:00",
             "lastUpdatedDate": "2021-08-21T08:00:00+00:00",
             "thumbnailURL": "CreativeCoder\/thumbnail.png",
-            "bannerImageURL": "CreativeCoder\/banner.png",
             "additionalInformation": [
                 {
                     "name": "Publisher",
@@ -67,7 +66,7 @@
                 },
                 {
                     "name": "Released",
-                    "value": "June 17, 2021"
+                    "value": "August 21, 2021"
                 },
                 {
                     "name": "Languages",
@@ -76,10 +75,7 @@
                 
             ],
             "previewImageURLs": [
-                "CreativeCoder\/previewImage.png",
-                "CreativeCoder\/previewImage-1.png",
-                "CreativeCoder\/previewImage-2.png",
-                "CreativeCoder\/previewImage-3.png"
+                
             ]
         }
     ]

@@ -17,7 +17,7 @@
 	<key>DevelopmentRegion</key>
 	<string>en</string>
 	<key>ImageReference</key>
-	<string>PlaygroundEngineerIcon.png</string>
+	<string>CreativeCoderIcon.png</string>
 	<key>Name</key>
 	<string>PlaygroundBookName</string>
 	<key>SupportsDarkMode</key>
