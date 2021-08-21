@@ -48,13 +48,14 @@
             "title": "Creative Coder",
             "overviewSubtitle": "Intermediate",
             "detailSubtitle": "Code to Ignite Creativity!",
-            "description": "Experience the fun of coding as you create your own objects, animate them and mold them to form a game or an app.\n Think. Create. Fail. Adjust. Repeat. And don't give up. ",
+            "description": "Experience the fun of coding as you create your own objects, animate them and mold them to form a game or an app.\n Think. Create. Fail. Adjust. Repeat. Just remember to never give up! ",
             "contentIdentifier": "io.github.PlaygroundEngineer.CreativeCoder",
             "contentVersion": "1.0",
             "url": "https:\/\/PlaygroundEngineer.github.io\/CreativeCoder\/CreativeCoder.playgroundbook.zip",
             "publishedDate": "2021-08-20T02:13:57+00:00",
             "lastUpdatedDate": "2021-08-21T08:00:00+00:00",
             "thumbnailURL": "CreativeCoder\/thumbnail.png",
+            "bannerImageURL": "CreativeCoder\/banner.png",
             "additionalInformation": [
                 {
                     "name": "Publisher",
@@ -75,7 +76,10 @@
                 
             ],
             "previewImageURLs": [
-                
+                "CreativeCoder\/previewImage.png",
+                "CreativeCoder\/previewImage-1.png",
+                "CreativeCoder\/previewImage-2.png",
+                "CreativeCoder\/previewImage-3.png"
             ]
         }
     ]
