@@ -4,7 +4,6 @@
 <dict>
 	<key>Chapters</key>
 	<array>
-		<string>ProgrammingConcepts.playgroundchapter</string>
 		<string>ShapesAndSprites.playgroundchapter</string>
 		<string>Projects.playgroundchapter</string>
 	</array>
