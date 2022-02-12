@@ -1,10 +1,8 @@
+
 //#-hidden-code
+//  Copyright © 2016-2022 Satyananda Corp. All rights reserved.
 //
-//  See LICENSE folder for this template’s licensing information.
-//
-//  Abstract:
-//  The Swift file containing the source code edited by the user of this playground book.
-//
+//#-code-completion(everything, show)
 //#-end-hidden-code
 
 import SpriteKit
@@ -12,7 +10,6 @@ import SpriteKit
 setScene()
 
 showGrid()
-
 
 let circle = ShapeNode(circleOfRadius: 50.0)
 circle.fillColor = #colorLiteral(red: 0.9994556308, green: 0.9863594174, blue: 0.2532016337, alpha: 1.0)
