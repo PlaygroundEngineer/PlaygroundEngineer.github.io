@@ -1,8 +1,10 @@
 //#-hidden-code
 //
-//  Copyright © 2016-2022 Satyananda Corp. All rights reserved.
+//  See LICENSE folder for this template’s licensing information.
 //
-//#-code-completion(everything, show)
+//  Abstract:
+//  The Swift file containing the source code edited by the user of this playground book.
+//
 //#-end-hidden-code
 
 import SpriteKit
@@ -31,14 +33,12 @@ canvas.addChild(node)
 
 // create a path with curve
 let curve = CGMutablePath()
-curve.move(to: CGPoint(x: 0, y: 0))
-curve.addCurve(to: CGPoint(x: 0, y: 150), control1: CGPoint(x: 100, y: 100), control2: CGPoint(x: -100, y: 100))
+curve.move(to: CGPoint(x: -150, y: 150))
+curve.addQuadCurve(to: CGPoint(x: 150, y: 150), control: CGPoint(x: 0, y: 0))
 
 //create a shape node
 let curveNode = ShapeNode(path: curve)
 curveNode.strokeColor = #colorLiteral(red: 0.2168135047, green: 0.1025053188, blue: 0.5823028088, alpha: 1.0)
-curveNode.fillColor = #colorLiteral(red: 1.0, green: 0.6663846374, blue: 0.0, alpha: 1.0)
 canvas.addChild(curveNode)
-
 
 

@@ -1,8 +1,10 @@
 //#-hidden-code
 //
-//  Copyright © 2016-2022 Satyananda Corp. All rights reserved.
+//  See LICENSE folder for this template’s licensing information.
 //
-//#-code-completion(everything, show)
+//  Abstract:
+//  The Swift file containing the source code edited by the user of this playground book.
+//
 //#-end-hidden-code
 
 

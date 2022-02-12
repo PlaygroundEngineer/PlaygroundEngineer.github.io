@@ -10,8 +10,6 @@ import SpriteKit
 
 setScene()
 
-showGrid()
-
 addCollisionBoarderToCanvas()
 
 //Rules

@@ -14,7 +14,6 @@ import BookCore
 //
 // This is controlled via the book-level `UserAutoImportedAuxiliaryModules`
 // Manifest.plist key.
-
 import SpriteKit
 import PlaygroundSupport
 import GameplayKit

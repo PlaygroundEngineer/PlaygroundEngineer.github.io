@@ -176,6 +176,13 @@ public struct PlaygroundSound {
     public static var swell02 = "tone_swell_002.wav"
     public static var swell03 = "tone_swell_003.wav"
     public static var swell04 = "tone_swell_004.wav"
+    public static var applause = "Applause.wav"
+    public static var birdSound = "birdSound.wav"
+    public static var heartbeat = "heartbeat.wav"
+    public static var musicBox = "musicBox.wav"
+    public static var sunnyDay = "sunnyDay.wav"
+    public static var chordBeats = "chordBeats.mp3"
+    
 }
 
 public struct Font {
@@ -186,6 +193,13 @@ public struct Font {
     public static var markerFeltThin = "MarkerFelt-Thin"
     public static var palatinoRoman  = "Palatino-Roman"
     public static var snellRoundhand = "SnellRoundhand"
+    public static var futuraMedium = "Futura-Medium"
+    public static var gillSansSemiBoldItalic = "GillSans-SemiBoldItalic"
+    public static var partyLetPlain = "PartyLetPlain"
+    public static var savoyeLetPlain = "SavoyeLetPlain"
+    public static var trebuchetMS = "TrebuchetMS"
+    public static var zapfin = "Zapfin"
+    public static var pingFangTCRegular = "PingFangTC-Regular"
 }
 
 public struct EmitterFile {
@@ -235,5 +249,26 @@ public func removeOutOfScreenNodes() {
             node.removeFromParent()
         }
     }
+}
+
+public func resizeImageToFitCanvas(_ image: UIImage) -> CGSize {
+    var h = image.size.height
+    var w = image.size.width
+    while  h > canvas.frame.height || w > canvas.frame.width {
+        var ratio: CGFloat = 1.0
+        if h > canvas.frame.height {
+            ratio = CGFloat(canvas.frame.height / h)
+        } else if w > canvas.frame.width {
+            ratio = CGFloat(canvas.frame.width / w)
+        }
+        w = w * ratio
+        h = h * ratio
+    }
+    return CGSize(width: w, height: h)
+}
+
+public func getShapeNode(for points: [CGPoint]) -> ShapeNode {
+    var points = points
+    return ShapeNode(splinePoints: &points, count: points.count)
 }
 
