@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import SpriteKit
+import SwiftUI
 
 extension UIColor {
    convenience init(red: Int, green: Int, blue: Int) {
@@ -27,36 +28,9 @@ extension UIColor {
    }
 }
 
-extension UIColor {
-
-    func lighter(by percentage: CGFloat = 30.0) -> UIColor {
-        return self.adjust(by: abs(percentage) )
-    }
-
-    func darker(by percentage: CGFloat = 30.0) -> UIColor {
-        return self.adjust(by: -1 * abs(percentage) )
-    }
-
-    func adjust(by percentage: CGFloat = 30.0) -> UIColor {
-        var red: CGFloat = 0, green: CGFloat = 0, blue: CGFloat = 0, alpha: CGFloat = 0
-        if self.getRed(&red, green: &green, blue: &blue, alpha: &alpha) {
-            return UIColor(red: min(red + percentage/100, 1.0),
-                           green: min(green + percentage/100, 1.0),
-                           blue: min(blue + percentage/100, 1.0),
-                           alpha: alpha)
-        } else {
-            if percentage < 0 {
-                return UIColor.white
-            } else {
-                return UIColor.black
-            }
-        }
-    }
-}
-
 public func showGrid() {
     
-    let color = randomColor()
+    let color = randomUIColor()
     let xAxis = CGMutablePath()
     xAxis.addLines(between: [CGPoint(x: 0, y: canvas.frame.minY), CGPoint(x: 0, y: canvas.frame.maxY)])
     let x = ShapeNode(path: xAxis)
@@ -105,18 +79,31 @@ public func showGrid() {
     }
  }
 
-public func randomColor() -> UIColor {
+public func randomColor() -> Color {
+    let r = Double.random(in: 0...1)
+    let g = Double.random(in: 0...1)
+    let b = Double.random(in: 0...1)
+    return Color(red: CGFloat(r), green: CGFloat(g), blue: CGFloat(b))
+}
+public func randomColor(with opacity: Double) -> Color {
+    let r = Double.random(in: 0...1)
+    let g = Double.random(in: 0...1)
+    let b = Double.random(in: 0...1)
+    return Color(.sRGB, red: r, green: g, blue: b, opacity: opacity)
+ }
+
+public func randomUIColor() -> UIColor {
     let r = Double.random(in: 0...1)
     let g = Double.random(in: 0...1)
     let b = Double.random(in: 0...1)
     return UIColor(red: CGFloat(r), green: CGFloat(g), blue: CGFloat(b), alpha: 1.0)
 }
 
-public func randomColor(withAlpha: Double) -> UIColor {
+public func randomUIColor(with alpha: Double) -> UIColor {
     let r = Double.random(in: 0...1)
     let g = Double.random(in: 0...1)
     let b = Double.random(in: 0...1)
-    return UIColor(red: CGFloat(r), green: CGFloat(g), blue: CGFloat(b), alpha: CGFloat(withAlpha))
+    return UIColor(red: CGFloat(r), green: CGFloat(g), blue: CGFloat(b), alpha: CGFloat(alpha))
 }
 
 public func random(_ a: Int, _ b: Int) -> Int {
@@ -176,13 +163,6 @@ public struct PlaygroundSound {
     public static var swell02 = "tone_swell_002.wav"
     public static var swell03 = "tone_swell_003.wav"
     public static var swell04 = "tone_swell_004.wav"
-    public static var applause = "Applause.wav"
-    public static var birdSound = "birdSound.wav"
-    public static var heartbeat = "heartbeat.wav"
-    public static var musicBox = "musicBox.wav"
-    public static var sunnyDay = "sunnyDay.wav"
-    public static var chordBeats = "chordBeats.mp3"
-    
 }
 
 public struct Font {
@@ -212,7 +192,6 @@ public struct EmitterFile {
     public static var snow = "Snow.sks"
 }
 
-
 extension UIImage {
     class func image(from layer: CALayer) -> UIImage? {
         UIGraphicsBeginImageContextWithOptions(layer.bounds.size,
@@ -236,11 +215,6 @@ public func mask(_ node: SKNode, with maskNode: SKNode) -> SKCropNode {
     return cropNode
 }
 
-public class EmitterNode: SKEmitterNode {
-    
-    
-}
-
 public func removeOutOfScreenNodes() {
     let screen = UIScreen.main.bounds
     for node in canvas.children {
@@ -249,6 +223,63 @@ public func removeOutOfScreenNodes() {
             node.removeFromParent()
         }
     }
+}
+
+public func getShapeNode(for points: [CGPoint]) -> ShapeNode {
+    var points = points
+    return ShapeNode(splinePoints: &points, count: points.count)
+}
+
+public func crescent(width: Double, height: Double, center: CGPoint) -> CGPath {
+    let path = CGMutablePath()
+    
+    let x = Double(center.x) - width / 2
+    let y = Double(center.y) + height
+    let p = point(x, y)
+    
+    let x1 = Double(center.x) + width / 2
+    let y1 = Double(center.y) + height
+    let p1 = point(x1, y1)
+    
+    let x2 = Double(center.x)
+    let y2 = Double(center.y) - height
+    let c = point(x2, y2)
+    
+    path.move(to: p)
+    path.addQuadCurve(to: p1, control: c)
+    
+    path.move(to: p)
+    path.addQuadCurve(to: p1, control: center)
+    
+    return path
+}
+
+public func leaf(width: Double, height: Double, center: CGPoint) -> CGPath {
+    let path = CGMutablePath()
+    
+    let x2 = Double(center.x)
+    let y2 = Double(center.y) - height/2
+    let p1 = point(x2, y2)
+    
+    let x3 = Double(center.x)
+    let y3 = Double(center.y) + (height/2)
+    let p2 = point(x3, y3)
+    
+    let x = Double(center.x) - width / 2
+    let y = Double(center.y)
+    let c1 = point(x, y)
+    
+    let x1 = Double(center.x) + width / 2
+    let y1 = Double(center.y)
+    let c2 = point(x1, y1)
+    
+    path.move(to: p1)
+    path.addQuadCurve(to: p2, control: c1)
+    
+    path.move(to: p1)
+    path.addQuadCurve(to: p2, control: c2)
+    
+    return path
 }
 
 public func resizeImageToFitCanvas(_ image: UIImage) -> CGSize {
@@ -267,8 +298,115 @@ public func resizeImageToFitCanvas(_ image: UIImage) -> CGSize {
     return CGSize(width: w, height: h)
 }
 
-public func getShapeNode(for points: [CGPoint]) -> ShapeNode {
-    var points = points
-    return ShapeNode(splinePoints: &points, count: points.count)
+extension UIColor {
+
+    func lighter(by percentage: CGFloat = 30.0) -> UIColor {
+        return self.adjust(by: abs(percentage) )
+    }
+
+    func darker(by percentage: CGFloat = 30.0) -> UIColor {
+        return self.adjust(by: -1 * abs(percentage) )
+    }
+
+    func adjust(by percentage: CGFloat = 30.0) -> UIColor {
+        var red: CGFloat = 0, green: CGFloat = 0, blue: CGFloat = 0, alpha: CGFloat = 0
+        if self.getRed(&red, green: &green, blue: &blue, alpha: &alpha) {
+            return UIColor(red: min(red + percentage/100, 1.0),
+                           green: min(green + percentage/100, 1.0),
+                           blue: min(blue + percentage/100, 1.0),
+                           alpha: alpha)
+        } else {
+            if percentage < 0 {
+                return UIColor.white
+            } else {
+                return UIColor.black
+            }
+        }
+    }
 }
+
+public struct Message {
+    private var labelYPosition = 150.0
+    private var messages: [String] = []
+    public init(messages: [String]) {
+        self.messages = messages
+        for message in messages {
+            setMessage(text: message)
+        }
+    }
+    mutating func setMessage(text: String) {
+        let labelNode = LabelNode(text: "\(text)")
+        labelNode.position.y = CGFloat(labelYPosition)
+        labelNode.fontSize = 20.0
+        labelNode.fontName = Font.arialBoldMT
+        labelNode.fontColor = UIColor(red: 224/255, green: 16/255, blue: 115/255, alpha: 0.5)
+        canvas.addChild(labelNode)
+        
+        let fade = SKAction.fadeOut(withDuration: 10.0)
+        labelNode.run(fade)
+        labelYPosition -= 50.0
+    }
+
+}
+
+public func animateBackgroundHorizontal(_ img1: UIImage, _ img2: UIImage, duration: Double) {
+    animateBackgroundHorizontal(img1, img2, zPosition: 1, duration: duration)
+}
+public func animateBackgroundHorizontal(_ img1: UIImage, _ img2: UIImage, zPosition: CGFloat, duration: Double) {
+    let m1 = SpriteNode(image: img1)
+    m1.zPosition = zPosition
+    m1.aspectFill(to: CGSize(width: m1.frame.width, height: canvas.frame.height))
+    canvas.addChild(m1)
+
+    let a1 = SKAction.move(by: CGVector(dx: m1.frame.width, dy: 0), duration: duration)
+    let a2 = SKAction.move(by: CGVector(dx: -2 * m1.frame.width, dy: 0), duration: 0.0)
+    let a3 = SKAction.sequence([a1, a2, a1])
+    let a4 = SKAction.repeatForever(a3)
+    m1.run(a4)
+   
+    let m2 = SpriteNode(image: img2)
+    m2.zPosition = zPosition
+    m2.aspectFill(to: CGSize(width: m2.frame.width, height: canvas.frame.height))
+    canvas.addChild(m2)
+    let startPosition = (m1.frame.width/2 + m2.frame.width/2) * -1
+    m2.position.x = startPosition
+    
+    let b1 = SKAction.moveTo(x: 0, duration: duration)
+    let b2 = SKAction.move(by: CGVector(dx: (m1.frame.width/2 + m2.frame.width/2), dy: 0), duration: duration)
+    let b3 = SKAction.move(to: CGPoint(x: startPosition, y: 0), duration: 0.0)
+    let b4 = SKAction.sequence([b1, b2, b3])
+    let b5 = SKAction.repeatForever(b4)
+    m2.run(b5)
+}
+
+public func animateBackgroundVertically(_ img1: UIImage, _ img2: UIImage, duration: Double) {
+    animateBackgroundVertically(img1, img2, zPosition: 1, duration: duration)
+}
+public func animateBackgroundVertically(_ img1: UIImage, _ img2: UIImage, zPosition: CGFloat, duration: Double) {
+    let m1 = SpriteNode(image: img1)
+    m1.zPosition = zPosition
+    m1.aspectFill(to: CGSize(width: m1.frame.width, height: canvas.frame.height))
+    canvas.addChild(m1)
+
+    let a1 = SKAction.move(by: CGVector(dx: 0, dy: -m1.frame.height), duration: duration)
+    let a2 = SKAction.move(by: CGVector(dx: 0, dy: 2 * m1.frame.height), duration: 0.0)
+    let a3 = SKAction.sequence([a1, a2, a1])
+    let a4 = SKAction.repeatForever(a3)
+    m1.run(a4)
+   
+    let m2 = SpriteNode(image: img2)
+    m2.zPosition = zPosition
+    m2.aspectFill(to: CGSize(width: m2.frame.width, height: canvas.frame.height))
+    canvas.addChild(m2)
+    let startPosition = (m1.frame.height/2 + m2.frame.height/2)
+    m2.position.y = startPosition
+    
+    let b1 = SKAction.moveTo(y: 0, duration: duration)
+    let b2 = SKAction.move(by: CGVector(dx: 0, dy: -(m1.frame.height/2 + m2.frame.height/2)), duration: duration)
+    let b3 = SKAction.move(to: CGPoint(x: 0, y: startPosition), duration: 0.0)
+    let b4 = SKAction.sequence([b1, b2, b3])
+    let b5 = SKAction.repeatForever(b4)
+    m2.run(b5)
+}
+
 

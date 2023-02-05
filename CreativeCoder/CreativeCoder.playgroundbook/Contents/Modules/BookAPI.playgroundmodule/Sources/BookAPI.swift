@@ -16,7 +16,7 @@ import BookCore
 // Manifest.plist key.
 import SpriteKit
 import PlaygroundSupport
-import GameplayKit
+//import GameplayKit
 
 public func setScene() {
     PlaygroundPage.current.liveView = LiveViewController()
@@ -79,3 +79,6 @@ extension LiveViewController {
     }
     
 }
+
+
+

@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>Name</key>
-	<string>ChapterTwoName</string>
+	<string>SpriteKit Concepts</string>
 	<key>Pages</key>
 	<array>
 		<string>Shape.playgroundpage</string>

@@ -17,12 +17,24 @@ public let cameraNode = SKCameraNode()
 
 open class GameScene: SKScene, SKPhysicsContactDelegate, SKSceneDelegate {
     
+    public func load() {
+//        self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+//        self.physicsWorld.contactDelegate = self
+//        self.delegate = self
+//        self.camera = cameraNode
+//        let size = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height /*- (UIScreen.main.bounds.height/10)*/)
+//        canvas = ShapeNode(rectOf: size)
+//        canvas.zPosition = -1
+//        canvas.fillColor = .systemPink
+//        self.addChild(canvas)
+    }
+    
     public override func didMove(to view: SKView) {
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         self.physicsWorld.contactDelegate = self
         self.delegate = self
         self.camera = cameraNode
-        let size = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height-(UIScreen.main.bounds.height/10))
+        let size = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height /*- (UIScreen.main.bounds.height/10)*/)
         canvas = ShapeNode(rectOf: size)
         canvas.zPosition = -1
         canvas.fillColor = .systemPink
@@ -66,5 +78,6 @@ open class GameScene: SKScene, SKPhysicsContactDelegate, SKSceneDelegate {
     public override func didEvaluateActions() {
         onActionComplete()
     }
+    
 }
 

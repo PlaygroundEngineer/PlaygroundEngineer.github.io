@@ -11,12 +11,25 @@ import SpriteKit
 public class ButtonStack: SKNode {
     private var count: Int
     public var buttonActions: [()->()]
+    public var colors: [UIColor] = [UIColor.white] {
+        didSet {
+            let count = colors.count
+            for i in 0...count - 1 {
+                if let stackNode = self.childNode(withName: "backgroundNode") as? ShapeNode,
+                   let stackButton = stackNode.childNode(withName: "button\(i)") as? ShapeNode {
+                    stackButton.color = colors[i]
+                }
+            }
+        }
+    }
     public var images: [UIImage]? {
         didSet {
             if let images = images {
                 var i = 0
                 for image in images {
-                    let node = SpriteNode(image: image, size: CGSize(width: button.width * 0.6, height: button.height * 0.6))
+                    let node = SpriteNode(image: image,
+                                          size: CGSize(width: button.width * 0.6,
+                                                       height: button.height * 0.6))
                     if i < buttons.count {
                         buttons[i].addChild(node)
                     }
@@ -133,6 +146,7 @@ public class ButtonStack: SKNode {
         for i in 0 ... count - 1 {
             let buttonNode = ShapeNode(rectOf: CGSize(width: button.width, height: button.height),
                                    cornerRadius: CGFloat(button.cornerRadius))
+            buttonNode.name = "button\(i)"
             buttonNode.color = button.color
             buttonNode.lineWidth = 0
             if direction == .horizontal {

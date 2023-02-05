@@ -129,7 +129,6 @@ public class SpriteNode: SKSpriteNode {
             self.affectedByGravity = true
         }
     }
-    
     public var bounce = 0.2 {
         didSet {
             self.physicsBody?.restitution = CGFloat(bounce)
@@ -179,6 +178,7 @@ public class SpriteNode: SKSpriteNode {
         }
         onTouchMoved()
     }
+    
     public override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         currentTouchPoint = touches.first?.location(in: self) ?? .zero
         onTouchUp()
@@ -245,10 +245,6 @@ public class Texture: SKTexture {
 
 }
 
-public class LabelNode: SKLabelNode {
-    
-}
-
 extension SKAction {
     public class func repeatForever(wait sec: TimeInterval, action: @escaping () -> ()) {
         let a1 = SKAction.wait(forDuration: sec)
@@ -261,7 +257,26 @@ extension SKAction {
     }
 }
 
-
+extension SKSpriteNode {
+    public func aspectFill(to size: CGSize) {
+        if texture != nil {
+            self.size = texture!.size()
+            let verticalRatio = size.height / self.texture!.size().height
+            let horizontalRatio = size.width / self.texture!.size().width
+            let scaleRatio = (horizontalRatio > verticalRatio) ? horizontalRatio : verticalRatio
+            self.setScale(scaleRatio)
+        }
+    }
+    public func aspectFit(to size: CGSize) {
+        if texture != nil {
+            self.size = texture!.size()
+            let verticalRatio = size.height / self.texture!.size().height
+            let horizontalRatio = size.width / self.texture!.size().width
+            let scaleRatio = (horizontalRatio < verticalRatio) ? horizontalRatio : verticalRatio
+            self.setScale(scaleRatio)
+        }
+    }
+}
 
 
 
