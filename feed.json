@@ -87,9 +87,9 @@
             "overviewSubtitle": "Intermediate",
             "detailSubtitle": "Code to Ignite Creativity!",
             "description": "Experience the fun of coding as you create your own objects, animate them and mold them to form a game or an app.\n Think. Create. Fail. Adjust. Repeat. Just remember to never give up! Available on iOS16 and up",
-            "contentIdentifier": "io.github.PlaygroundEngineer.CreativeCoder",
+            "contentIdentifier": "io.github.PlaygroundEngineer.CreativeCoderV2",
             "contentVersion": "1.0",
-            "url": "https:\/\/PlaygroundEngineer.github.io\/CreativeCoderV2\/CreativeCoder.playgroundbook.zip",
+            "url": "https:\/\/PlaygroundEngineer.github.io\/CreativeCoderV2\/CreativeCoderV2.playgroundbook.zip",
             "publishedDate": "2023-01-20T02:13:57+00:00",
             "lastUpdatedDate": "2023-01-20T08:00:00+00:00",
             "thumbnailURL": "CreativeCoder\/thumbnail.png",
@@ -105,7 +105,7 @@
                 },
                 {
                     "name": "Released",
-                    "value": "August 20, 2021"
+                    "value": "Feb 20, 2023"
                 },
                 {
                     "name": "Languages",
