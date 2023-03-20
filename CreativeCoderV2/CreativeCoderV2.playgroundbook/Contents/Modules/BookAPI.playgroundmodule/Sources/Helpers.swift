@@ -30,7 +30,7 @@ extension UIColor {
 
 public func showGrid() {
     
-    let color = randomUIColor()
+    let color = randomColor()
     let xAxis = CGMutablePath()
     xAxis.addLines(between: [CGPoint(x: 0, y: canvas.frame.minY), CGPoint(x: 0, y: canvas.frame.maxY)])
     let x = ShapeNode(path: xAxis)
@@ -79,27 +79,27 @@ public func showGrid() {
     }
  }
 
-public func randomColor() -> Color {
+public func randomSwiftUIColor() -> Color {
     let r = Double.random(in: 0...1)
     let g = Double.random(in: 0...1)
     let b = Double.random(in: 0...1)
     return Color(red: CGFloat(r), green: CGFloat(g), blue: CGFloat(b))
 }
-public func randomColor(with opacity: Double) -> Color {
+public func randomSwiftUIColor(with opacity: Double) -> Color {
     let r = Double.random(in: 0...1)
     let g = Double.random(in: 0...1)
     let b = Double.random(in: 0...1)
     return Color(.sRGB, red: r, green: g, blue: b, opacity: opacity)
  }
 
-public func randomUIColor() -> UIColor {
+public func randomColor() -> UIColor {
     let r = Double.random(in: 0...1)
     let g = Double.random(in: 0...1)
     let b = Double.random(in: 0...1)
     return UIColor(red: CGFloat(r), green: CGFloat(g), blue: CGFloat(b), alpha: 1.0)
 }
 
-public func randomUIColor(with alpha: Double) -> UIColor {
+public func randomColor(with alpha: Double) -> UIColor {
     let r = Double.random(in: 0...1)
     let g = Double.random(in: 0...1)
     let b = Double.random(in: 0...1)
